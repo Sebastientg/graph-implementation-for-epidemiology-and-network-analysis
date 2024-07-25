@@ -7,7 +7,7 @@
 #include "Graph.h"
 using namespace std;
 
-// define test names
+// Define test names
 #ifndef PROPERTIES
 #define PROPERTIES "graph_properties"
 #endif
@@ -24,13 +24,13 @@ using namespace std;
 #define THRESHOLD "smallest_threshold"
 #endif
 
-// valid tests
+// Valid tests
 const string TESTS_ORDERED[] = {PROPERTIES, BFS, DIJKSTRA, COMPONENTS, THRESHOLD};
 const unordered_set<string> TESTS(TESTS_ORDERED, TESTS_ORDERED+sizeof(TESTS_ORDERED)/sizeof(string));
 
-// main GraphTest program execution
+// Main GraphTest program execution
 int main(int argc, char** argv) {
-    // check user args
+    // Check user args
     if(argc != 3) {
         cerr << "USAGE: " << argv[0] << " <edgelist_csv> <test>" << endl; exit(1);
     } else if(TESTS.find(argv[2]) == TESTS.end()) {
@@ -42,11 +42,11 @@ int main(int argc, char** argv) {
         exit(1);
     }
 
-    // load graph and perform tests
+    // Load graph and perform tests
     Graph g(argv[1]);
     vector<string> nodes = g.nodes();
 
-    // check basic properties of the graph
+    // Check basic properties of the graph
     if(strcmp(argv[2], PROPERTIES) == 0) {
         cout << "Number of Nodes\t" << g.num_nodes() << endl;
         cout << "Nodes\t"; bool first = true;
@@ -94,7 +94,7 @@ int main(int argc, char** argv) {
         cout << '}' << endl;
     }
 
-    // check shortest path
+    // Check shortest path
     else if(strcmp(argv[2], BFS) == 0 || strcmp(argv[2], DIJKSTRA) == 0) {
         bool is_bfs = strcmp(argv[2], DIJKSTRA); bool first = true;
         cout << "Shortest Path ("; if(is_bfs) { cout << "Unw"; } else { cout << "W"; } cout << "eighted)\t";
@@ -127,7 +127,7 @@ int main(int argc, char** argv) {
         cout << '}' << endl;
     }
 
-    // check connected components
+    // Check connected components
     else if(strcmp(argv[2], COMPONENTS) == 0) {
         vector<double> edge_weights;
         for(unsigned int i = 0; i < nodes.size()-1; ++i) {
@@ -154,7 +154,7 @@ int main(int argc, char** argv) {
         cout << ']' << endl;
     }
 
-    // check smallest connecting threshold
+    // Check smallest connecting threshold
     else if(strcmp(argv[2], THRESHOLD) == 0) {
         cout << "Smallest Connecting Threshold\t"; bool first = true;
         for(string const & u : nodes) {
@@ -172,6 +172,6 @@ int main(int argc, char** argv) {
         cout << '}' << endl;
     }
 
-    // finished
+    // Finished
     return 0;
 }
