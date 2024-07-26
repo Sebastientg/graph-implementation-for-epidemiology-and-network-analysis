@@ -1,7 +1,7 @@
 
 # Graph Implementation for Epidemiology and Network Analysis
 
-### Overview
+## Overview
 
 This project focuses on the fundamental mathematical concept of graphs, which are essential in Computer Science for representing networks of connected entities. This implementation is designed to demonstrate graph theory applications in epidemiology, specifically in analyzing viral sequences and studying virus transmission clusters. The provided code is a Graph class API that allows for various operations on undirected graphs, such as computing shortest paths, connected components, and more.
 
